@@ -63,6 +63,9 @@ foreach ($email in $unread){
                         $empID = $empID.ToString().PadLeft(5, '0') # 'cause it's a double
                     }
 
+                    # connect to each Matrix site in turn and, using Connx as a ODBC broker to access the RMS data files, delete each terminated employeed from the MF_OPR table
+                    # remembering that an employee may exist on none (they may be on FATS), one, or many of the MF_OPR tables across the multiple Matrix controlled factory sites
+
                     foreach ( $site in ("arpcnxliv", "nabcnxliv", "trmcnxliv", "mspcnxliv", "hawcnxliv", "duncnxliv", "wpucnxliv") ){
 
                         $conn = new-object System.Data.Odbc.OdbcConnection
